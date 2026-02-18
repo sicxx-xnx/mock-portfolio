@@ -3,6 +3,12 @@
     margin: 0;
     padding: 0;
 }
+p{
+color: white;    
+}
+.picture-tablet {
+display: none;    
+}
 body{
 display: grid;    
 grid: repeat(7,1fr) /  repeat(8,1fr);
@@ -23,13 +29,22 @@ min-height: clamp(250px, 40vh, 650px);
 background: linear-gradient(-5deg, white 30%, #1027f5 26%);
 justify-content: center;
 display: flex;
+position: relative;
 }
 header h2{
 margin-bottom: 3%;   
 font-size: 3rem; 
 }
 header p{
-font-size: 2rem;    
+font-size: 2vw;
+color: black;   
+}
+header h1{
+position: absolute;   
+left: 17%;
+bottom: 15%; 
+color: white;
+font-size: clamp(1.5rem, 2vw + 1rem, 3.5rem);
 }
 main{
 grid-area: main;
@@ -65,10 +80,11 @@ gap: clamp(10px, 2vh, 36px);
 flex: 1 0 38%;
 }
 footer h2{
-font-size: 3rem;    
+font-size: calc(clamp(1.5rem,2vw + 1rem, 3.5rem) * 1.1);    
 }
 footer p {
-font-size: 2rem;    
+font-size: calc(clamp(1.5rem, 2vw + 1rem, 3.5rem) / 2);
+;    
 }
 i{
 vertical-align: middle;   
@@ -139,7 +155,7 @@ box-shadow: 2px 2px 2px 0px #4f4d4d;
 padding: 2%;
 }
 header div p {
- font-size: 1.5rem;
+ font-size: 1.3rem;
  line-height: 1.4;  
 }
 
@@ -178,7 +194,7 @@ object-position: 50px;
 width: 100%;
 height: 100%;
 object-fit: cover;
-object-position: center -300px;
+object-position: center clamp(-200px,-10% ,-300px);
 }
 .phone-holder{
 display: flex;  
@@ -194,8 +210,51 @@ justify-content: start;
 gap: 5%;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
+.body{
+display: flex;
+flex-direction: column;    
+}    
+.picture-desktop{
+display: none;    
+}
+.picture-tablet{
+ display: block;
+ float: left;
+ width: 60%;
+ height: 80%;
+ padding-right: 5%;
+ margin-top: -12%;
+ margin-left: -12%;
+}
 header{
 background: linear-gradient(-10deg, white 30%, #1027f5 25%);
+display: grid;
+grid-template: 
+repeat(3, 1fr)/repeat(3, 1fr)
+;
+padding: 10%;
+}
+header > div{
+grid-area: 1/1/4/4 ;
+width: 100%;
+height: 100%; 
+position: relative;
+}
+header > div > h2{
+grid-area: 1/1/2/2;    
+display: flex;
+justify-content: center;
+}
+.title{
+display: flex;
+position: absolute;   
+top: -15%;
+left: 25%; 
+font-size: 3.5rem;
+color: white;
+}
+.icon-holder{
+ display: none;   
 }
     
 main>section{
@@ -210,7 +269,11 @@ grid-template-areas:
 "one two "
 "three four" 
 "five six";    
-}    
+}   
+.contact-us-image{
+object-position: center -96px;
+}
+
 }
 @media screen {
     
